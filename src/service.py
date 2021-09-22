@@ -72,9 +72,9 @@ class Model(object):
             subprocess.Popen(
                 cmd, stdout=fp, stderr=fp, shell=True, env=os.environ
             ).wait()
-        V = np.load(pred_file)
+        V = np.load(pred_file)["fps"]
         R = []
-        for r in range(V.shape[0]):
+        for i in range(V.shape[0]):
             R += [{"fingerprint": list(V[i,:])}]
         return R
 
