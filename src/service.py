@@ -11,7 +11,7 @@ import shutil
 import collections
 import tempfile
 import subprocess
-import csv
+import numpy as np
 
 CHECKPOINTS_BASEDIR = "checkpoints"
 FRAMEWORK_BASEDIR = "framework"
@@ -25,7 +25,8 @@ def load_model(framework_dir, checkpoints_dir):
 class Model(object):
     def __init__(self):
         self.DATA_FILE = "data.csv"
-        self.PRED_FILE = "pred.csv"
+        self.FEATURES_FILE = "features.npz"
+        self.PRED_FILE = "pred.npz"
         self.RUN_FILE = "run.sh"
         self.LOG_FILE = "run.log"
 
@@ -42,6 +43,7 @@ class Model(object):
     def predict(self, smiles_list):
         tmp_folder = tempfile.mkdtemp()
         data_file = os.path.join(tmp_folder, self.DATA_FILE)
+        features_file = os.path.join(tmp_folder, self.FEATURES_FILE)
         pred_file = os.path.join(tmp_folder, self.PRED_FILE)
         log_file = os.path.join(tmp_folder, self.LOG_FILE)
         with open(data_file, "w") as f:
@@ -51,11 +53,17 @@ class Model(object):
         run_file = os.path.join(tmp_folder, self.RUN_FILE)
         with open(run_file, "w") as f:
             lines = [
-                "python {0}/run_cddd.py -i {1} -o {2} --smiles_header 'smiles' --model_dir {3}/default_model/".format(
+                "python {0}/grover/scripts/save_features.py --data_path {1} --save_path {2} --features_generator rdkit_2d_normalized --restart".format(
                     self.framework_dir,
                     data_file,
-                    pred_file,
-                    self.checkpoints_dir
+                    features_file,
+                ),
+                "python {0}/grover/main.py fingerprint --data_path {1} --features_path {2} --checkpoint_path {3}/grover_large.pt --fingerprint_source both --output {4} --no_cuda".format(
+                    self.framework_dir,
+                    data_file,
+                    features_file,
+                    self.checkpoints_dir,
+                    pred_file
                 )
             ]
             f.write(os.linesep.join(lines))
@@ -64,12 +72,10 @@ class Model(object):
             subprocess.Popen(
                 cmd, stdout=fp, stderr=fp, shell=True, env=os.environ
             ).wait()
-        with open(pred_file, "r") as f:
-            reader = csv.reader(f)
-            h = next(reader)
-            R = []
-            for r in reader:
-                R += [{"embedding": [float(x) for x in r]}]
+        V = np.load(pred_file)
+        R = []
+        for r in range(V.shape[0]):
+            R += [{"fingerprint": list(V[i,:])}]
         return R
 
 
