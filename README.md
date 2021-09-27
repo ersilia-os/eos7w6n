@@ -1,2 +1,2 @@
-# eos-template
-Template repository to add new models to the Ersilia Model Hub
+# eos7w6n
+Grover fingerprint using the large pre-trained model.
