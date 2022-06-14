@@ -1,6 +1,6 @@
 # Grover-embedding
 
-Large-scale graph transformer
+Large-scale molecular data graph transformer
 
 | Description | Input  | Output  | Training Data | Experimental Validation |
 | ------- | --- | --- | --- | --- |
