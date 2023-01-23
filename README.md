@@ -1,26 +1,40 @@
 # Large-scale graph transformer
 
-## Model Identifiers
-- Slug: grover-embedding
-- Ersilia ID: eos7w6n
-- Tags: fingerprint, ML, graph
+GROVER is a self-supervised Graph Neural Network for molecular representation pretrained with 10 million unlabelled molecules from ChEMBL and ZINC15. The model provided has been pre-trained on 10 million molecules (GROVERlarge). GROVER has then been fine-tuned to predict several activities from the MoleculeNet benchmark, consistently outperforming other state-of-the-art methods for serveral benchmark datasets.
 
-## Model Description
-Self-supervised graph transformer trained on large-scale small molecule data 
-- Input: SMILES 
-- Output: Vector 
-- Model type: Regression
-- Mode of training: Pretrained
-- Training data: 11,000,000 compounds (https://github.com/tencent-ailab/grover/blob/main/grover/data/groverdataset.py)
-- Experimentally validated: No 
+## Identifiers
 
-## Source code
-This model is published by Yu Rong et al Self-Supervised Graph Transformer on Large-Scale Molecular Data. *Curran Associates, Inc.* (2020). DOI: https://proceedings.neurips.cc/paper/2020/file/94aef38441efa3380a3bed3faf1f9d5d-Paper.pdf
-- Code: https://github.com/tencent-ailab/grover
-- Checkpoints: https://github.com/tencent-ailab/grover
+* EOS model ID: `eos7w6n`
+* Slug: `grover-embedding`
+
+## Characteristics
+
+* Input: `Compound`
+* Input Shape: `Single`
+* Task: `Representation`
+* Output: `Descriptor`
+* Output Type: `Float`
+* Output Shape: `List`
+* Interpretation: Embedding representation of a molecule
+
+## References
+
+* [Publication](https://papers.nips.cc/paper/2020/file/94aef38441efa3380a3bed3faf1f9d5d-Paper.pdf)
+* [Source Code](https://github.com/tencent-ailab/grover)
+* Ersilia contributor: [miquelduranfrigola](https://github.com/miquelduranfrigola)
+
+## Citation
+
+If you use this model, please cite the [original authors](https://papers.nips.cc/paper/2020/file/94aef38441efa3380a3bed3faf1f9d5d-Paper.pdf) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).
 
 ## License
-The GPL-v3 license applies to all parts of the repository that are not externally maintained libraries. This repository uses the externally maintained library "grover", located at `/model` and licensed under a MIT License
 
-## History 
-- Model was downloaded and incorporated on September 21, 2021
+This package is licensed under a GPL-3.0 license. The model contained within this package is licensed under a MIT license.
+
+Notice: Ersilia grants access to these models 'as is' provided by the original authors, please refer to the original code repository and/or publication if you use the model in your research.
+
+## About Us
+
+The [Ersilia Open Source Initiative](https://ersilia.io) is a Non Profit Organization ([1192266](https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/5170657/full-print)) with the mission is to equip labs, universities and clinics in LMIC with AI/ML tools for infectious disease research.
+
+[Help us](https://www.ersilia.io/donate) achieve our mission!
