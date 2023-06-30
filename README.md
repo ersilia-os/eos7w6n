@@ -23,6 +23,9 @@ GROVER is a self-supervised Graph Neural Network for molecular representation pr
 * [Source Code](https://github.com/tencent-ailab/grover)
 * Ersilia contributor: [miquelduranfrigola](https://github.com/miquelduranfrigola)
 
+## Ersilia model URLs
+* [GitHub](https://github.com/ersilia-os/eos7w6n)
+
 ## Citation
 
 If you use this model, please cite the [original authors](https://papers.nips.cc/paper/2020/file/94aef38441efa3380a3bed3faf1f9d5d-Paper.pdf) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).
