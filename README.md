@@ -25,6 +25,8 @@ GROVER is a self-supervised Graph Neural Network for molecular representation pr
 
 ## Ersilia model URLs
 * [GitHub](https://github.com/ersilia-os/eos7w6n)
+* [AWS S3](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7w6n.zip)
+* [DockerHub](https://hub.docker.com/r/ersiliaos/eos7w6n) (AMD64, ARM64)
 
 ## Citation
 

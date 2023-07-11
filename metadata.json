@@ -28,5 +28,11 @@
     "Publication": "https://papers.nips.cc/paper/2020/file/94aef38441efa3380a3bed3faf1f9d5d-Paper.pdf",
     "Source Code": "https://github.com/tencent-ailab/grover",
     "License": "MIT",
-    "Contributor": "miquelduranfrigola"
+    "Contributor": "miquelduranfrigola",
+    "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7w6n.zip",
+    "DockerHub": "https://hub.docker.com/r/ersiliaos/eos7w6n",
+    "Docker Architecture": [
+        "AMD64",
+        "ARM64"
+    ]
 }
