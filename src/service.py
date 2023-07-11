@@ -40,7 +40,7 @@ class Model(object):
     def set_framework_dir(self, dest):
         self.framework_dir = os.path.abspath(dest)
 
-    def predict(self, smiles_list):
+    def run(self, smiles_list):
         tmp_folder = tempfile.mkdtemp()
         data_file = os.path.join(tmp_folder, self.DATA_FILE)
         features_file = os.path.join(tmp_folder, self.FEATURES_FILE)
@@ -53,12 +53,12 @@ class Model(object):
         run_file = os.path.join(tmp_folder, self.RUN_FILE)
         with open(run_file, "w") as f:
             lines = [
-                "python {0}/grover/scripts/save_features.py --data_path {1} --save_path {2} --features_generator rdkit_2d_normalized --restart".format(
+                "python {0}/code/scripts/save_features.py --data_path {1} --save_path {2} --features_generator rdkit_2d_normalized --restart".format(
                     self.framework_dir,
                     data_file,
                     features_file,
                 ),
-                "python {0}/grover/main.py fingerprint --data_path {1} --features_path {2} --checkpoint_path {3}/grover_large.pt --fingerprint_source both --output {4} --no_cuda".format(
+                "python {0}/code/main.py fingerprint --data_path {1} --features_path {2} --checkpoint_path {3}/grover_large.pt --fingerprint_source both --output {4} --no_cuda".format(
                     self.framework_dir,
                     data_file,
                     features_file,
@@ -129,8 +129,8 @@ class Artifact(BentoServiceArtifact):
 @artifacts([Artifact("model")])
 class Service(BentoService):
     @api(input=JsonInput(), batch=True)
-    def predict(self, input: List[JsonSerializable]):
+    def run(self, input: List[JsonSerializable]):
         input = input[0]
         smiles_list = [inp["input"] for inp in input]
-        output = self.artifacts.model.predict(smiles_list)
+        output = self.artifacts.model.run(smiles_list)
         return [output]
