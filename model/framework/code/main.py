@@ -1,3 +1,4 @@
+import csv
 import random
 
 import numpy as np
@@ -12,6 +13,7 @@ from task.predict import make_predictions, write_prediction
 from task.pretrain import pretrain_model
 from grover.data.torchvocab import MolVocab
 
+NBITS=5000
 
 def setup(seed):
     # frozen random seed
@@ -48,7 +50,16 @@ if __name__ == '__main__':
         train_args = get_newest_train_args()
         logger = create_logger(name='fingerprint', save_dir=None, quiet=False)
         feas = generate_fingerprints(args, logger)
-        np.savez_compressed(args.output_path, fps=feas)
+        pred_file = args.output_path.replace('.csv', '.npz')
+        np.savez_compressed(pred_file, fps=feas)
+        V = np.load(pred_file)["fps"]
+        header = ["dimension_{0}".format(str(i).zfill(4)) for i in range(NBITS)]
+        # write output in a .csv file
+        with open(args.output_path, "w") as f:
+            writer = csv.writer(f)
+            writer.writerow(header)  # header
+            for i in range(V.shape[0]):
+                writer.writerow(list(V[i,:]))
     elif args.parser_name == 'predict':
         train_args = get_newest_train_args()
         avg_preds, test_smiles = make_predictions(args, train_args)

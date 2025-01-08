@@ -7,6 +7,7 @@ RUN pip install tqdm==4.62.2
 RUN pip install torch==1.9.0
 RUN pip install scipy==1.7.1
 RUN pip install scikit-learn==0.24.2
+RUN pip install numpy==1.22.4
 
 WORKDIR /repo
 COPY . /repo
