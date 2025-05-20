@@ -12,3 +12,5 @@ python $1/code/main.py fingerprint --data_path $input \
                                   --fingerprint_source both \
                                   --output $output \
                                   --no_cuda \
+
+rm -f "$data_dir/features.npz"

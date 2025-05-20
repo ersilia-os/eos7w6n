@@ -3,6 +3,7 @@ import random
 
 import numpy as np
 import torch
+import os
 from rdkit import RDLogger
 
 from grover.util.parsing import parse_args, get_newest_train_args
@@ -53,13 +54,15 @@ if __name__ == '__main__':
         pred_file = args.output_path.replace('.csv', '.npz')
         np.savez_compressed(pred_file, fps=feas)
         V = np.load(pred_file)["fps"]
-        header = ["dimension_{0}".format(str(i).zfill(4)) for i in range(NBITS)]
+        header = ["dim_{0}".format(str(i).zfill(4)) for i in range(NBITS)]
         # write output in a .csv file
         with open(args.output_path, "w") as f:
             writer = csv.writer(f)
             writer.writerow(header)  # header
             for i in range(V.shape[0]):
                 writer.writerow(list(V[i,:]))
+        if os.path.exists(pred_file):
+            os.remove(pred_file)
     elif args.parser_name == 'predict':
         train_args = get_newest_train_args()
         avg_preds, test_smiles = make_predictions(args, train_args)
