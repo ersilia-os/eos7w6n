@@ -2,7 +2,7 @@
 
 GROVER is a self-supervised Graph Neural Network for molecular representation pretrained with 10 million unlabelled molecules from ChEMBL and ZINC15. The model provided has been pre-trained on 10 million molecules (GROVERlarge). GROVER has then been fine-tuned to predict several activities from the MoleculeNet benchmark, consistently outperforming other state-of-the-art methods for serveral benchmark datasets.
 
-This model was incorporated on 2021-07-02.
+This model was incorporated on 2021-09-22.
 
 ## Information
 ### Identifiers
