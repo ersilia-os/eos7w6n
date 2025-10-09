@@ -4,6 +4,7 @@ GROVER is a self-supervised Graph Neural Network for molecular representation pr
 
 This model was incorporated on 2021-09-22.
 
+
 ## Information
 ### Identifiers
 - **Ersilia Identifier:** `eos7w6n`
@@ -13,7 +14,7 @@ This model was incorporated on 2021-09-22.
 - **Task:** `Representation`
 - **Subtask:** `Featurization`
 - **Biomedical Area:** `Any`
-- **Target Organism:** `Not Applicable`
+- **Target Organism:** `Any`
 - **Tags:** `Chemical graph model`, `Embedding`, `Descriptor`
 
 ### Input
