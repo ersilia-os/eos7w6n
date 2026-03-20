@@ -37,6 +37,18 @@ if __name__ == '__main__':
     # Initialize MolVocab
     mol_vocab = MolVocab
 
+    # Ersilia calls: python main.py <input.csv> <output.csv>
+    # GROVER expects: python main.py fingerprint --data_path <input.csv> --output_path <output.csv> --checkpoint_path <model.pt>
+    import sys as _sys
+    if len(_sys.argv) == 3 and not _sys.argv[1].startswith('--') and _sys.argv[1] not in ('finetune', 'eval', 'predict', 'fingerprint', 'pretrain'):
+        root = os.path.dirname(os.path.abspath(__file__))
+        checkpoint_path = os.path.join(root, '..', '..', 'checkpoints', 'grover_large.pt')
+        _sys.argv = [_sys.argv[0], 'fingerprint',
+                     '--data_path', _sys.argv[1],
+                     '--output_path', _sys.argv[2],
+                     '--checkpoint_path', checkpoint_path,
+                     '--no_cuda']
+
     args = parse_args()
     if args.parser_name == 'finetune':
         logger = create_logger(name='train', save_dir=args.save_dir, quiet=False)
