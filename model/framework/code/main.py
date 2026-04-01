@@ -43,10 +43,28 @@ if __name__ == '__main__':
     if len(_sys.argv) == 3 and not _sys.argv[1].startswith('--') and _sys.argv[1] not in ('finetune', 'eval', 'predict', 'fingerprint', 'pretrain'):
         root = os.path.dirname(os.path.abspath(__file__))
         checkpoint_path = os.path.join(root, '..', '..', 'checkpoints', 'grover_large.pt')
+        input_path = _sys.argv[1]
+        output_path = _sys.argv[2]
+        features_path = input_path.replace('.csv', '_features.npz')
+        # Generate RDKit 2D normalized features (200 dims appended to 4800 GROVER dims = 5000 total)
+        from argparse import Namespace as _Namespace
+        from scripts.save_features import generate_and_save_features as _gen_features
+        _feats_args = _Namespace(
+            data_path=input_path,
+            features_generator='rdkit_2d_normalized',
+            save_path=features_path,
+            save_frequency=10000,
+            restart=True,
+            max_data_size=None,
+            sequential=False,
+        )
+        _gen_features(_feats_args)
         _sys.argv = [_sys.argv[0], 'fingerprint',
-                     '--data_path', _sys.argv[1],
-                     '--output_path', _sys.argv[2],
+                     '--data_path', input_path,
+                     '--features_path', features_path,
+                     '--output_path', output_path,
                      '--checkpoint_path', checkpoint_path,
+                     '--fingerprint_source', 'both',
                      '--no_cuda']
 
     args = parse_args()
