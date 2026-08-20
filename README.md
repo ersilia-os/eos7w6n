@@ -1,6 +1,6 @@
 # Large-scale graph transformer
 
-GROVER is a self-supervised Graph Neural Network for molecular representation pretrained with 10 million unlabelled molecules from ChEMBL and ZINC15. The model provided has been pre-trained on 10 million molecules (GROVERlarge). GROVER has then been fine-tuned to predict several activities from the MoleculeNet benchmark, consistently outperforming other state-of-the-art methods for serveral benchmark datasets.
+GROVER encodes a molecule into 5,000 features without needing any labels. Rong and colleagues at Tencent AI Lab folded message-passing networks into a Transformer and trained the result on node-, edge- and graph-level self-supervised tasks, yielding a 100-million-parameter encoder fitted to 10 million unlabelled molecules drawn from ChEMBL and ZINC15. Fine-tuning the pretrained weights improved on the state of the art across eleven MoleculeNet benchmarks by more than 6% on average. Individual dimensions carry no chemical meaning and are intended as input to downstream models.
 
 This model was incorporated on 2021-09-22.Last packaged on 2026-04-01.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2021-09-22.Last packaged on 2026-04-01.
 ### Output
 - **Output Dimension:** `5000`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Embedding representation of a molecule
+- **Interpretation:** 5000 features encoding molecular structure from a self-supervised graph transformer.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
@@ -60,7 +60,7 @@ _10 of 5000 columns are shown_
 ### References
 - **Source Code**: [https://github.com/tencent-ailab/grover](https://github.com/tencent-ailab/grover)
 - **Publication**: [https://doi.org/10.48550/arXiv.2007.02835](https://doi.org/10.48550/arXiv.2007.02835)
-- **Publication Type:** `Peer reviewed`
+- **Publication Type:** `Preprint`
 - **Publication Year:** `2020`
 - **Ersilia Contributor:** [miquelduranfrigola](https://github.com/miquelduranfrigola)
 
