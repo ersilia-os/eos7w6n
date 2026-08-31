@@ -84,7 +84,7 @@ if __name__ == '__main__':
         pred_file = args.output_path.replace('.csv', '.npz')
         np.savez_compressed(pred_file, fps=feas)
         V = np.load(pred_file)["fps"]
-        header = ["dim_{0}".format(str(i).zfill(4)) for i in range(NBITS)]
+        header = ["feat_{0}".format(str(i).zfill(4)) for i in range(NBITS)]
         # write output in a .csv file
         with open(args.output_path, "w") as f:
             writer = csv.writer(f)
