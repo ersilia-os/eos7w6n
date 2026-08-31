@@ -2,7 +2,7 @@
 
 GROVER is a self-supervised Graph Neural Network for molecular representation pretrained with 10 million unlabelled molecules from ChEMBL and ZINC15. The model provided has been pre-trained on 10 million molecules (GROVERlarge). GROVER has then been fine-tuned to predict several activities from the MoleculeNet benchmark, consistently outperforming other state-of-the-art methods for serveral benchmark datasets.
 
-This model was incorporated on 2021-09-22.Last packaged on 2026-04-01.
+This model was incorporated on 2021-09-22.Last packaged on 2026-08-31.
 
 ## Information
 ### Identifiers
@@ -44,18 +44,18 @@ _10 of 5000 columns are shown_
 - **Source:** `Local`
 - **Source Type:** `External`
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos7w6n](https://hub.docker.com/r/ersiliaos/eos7w6n)
-- **Docker Architecture:** `AMD64`
+- **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7w6n.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7w6n.zip)
 
 ### Resource Consumption
 - **Model Size (Mb):** `428`
 - **Environment Size (Mb):** `2406`
-- **Image Size (Mb):** `3695.78`
+- **Image Size (Mb):** `3710.32`
 
 **Computational Performance (seconds):**
-- 10 inputs: `31.93`
-- 100 inputs: `69.45`
-- 10000 inputs: `-1`
+- 10 inputs: `27.56`
+- 100 inputs: `28.19`
+- 10000 inputs: `672.76`
 
 ### References
 - **Source Code**: [https://github.com/tencent-ailab/grover](https://github.com/tencent-ailab/grover)
