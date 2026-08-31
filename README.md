@@ -28,16 +28,16 @@ This model was incorporated on 2021-09-22.Last packaged on 2026-04-01.
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
 |------|------|-----------|-------------|
-| dim_0000 | float |  | Dimension 0 of the GROVER embedding |
-| dim_0001 | float |  | Dimension 1 of the GROVER embedding |
-| dim_0002 | float |  | Dimension 2 of the GROVER embedding |
-| dim_0003 | float |  | Dimension 3 of the GROVER embedding |
-| dim_0004 | float |  | Dimension 4 of the GROVER embedding |
-| dim_0005 | float |  | Dimension 5 of the GROVER embedding |
-| dim_0006 | float |  | Dimension 6 of the GROVER embedding |
-| dim_0007 | float |  | Dimension 7 of the GROVER embedding |
-| dim_0008 | float |  | Dimension 8 of the GROVER embedding |
-| dim_0009 | float |  | Dimension 9 of the GROVER embedding |
+| feat_0000 | float |  | Feature 0 of the GROVER embedding |
+| feat_0001 | float |  | Feature 1 of the GROVER embedding |
+| feat_0002 | float |  | Feature 2 of the GROVER embedding |
+| feat_0003 | float |  | Feature 3 of the GROVER embedding |
+| feat_0004 | float |  | Feature 4 of the GROVER embedding |
+| feat_0005 | float |  | Feature 5 of the GROVER embedding |
+| feat_0006 | float |  | Feature 6 of the GROVER embedding |
+| feat_0007 | float |  | Feature 7 of the GROVER embedding |
+| feat_0008 | float |  | Feature 8 of the GROVER embedding |
+| feat_0009 | float |  | Feature 9 of the GROVER embedding |
 
 _10 of 5000 columns are shown_
 ### Source and Deployment
