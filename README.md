@@ -1,6 +1,6 @@
 # Large-scale graph transformer
 
-GROVER encodes a molecule into 5,000 features without needing any labels. Rong and colleagues at Tencent AI Lab folded message-passing networks into a Transformer and trained the result on node-, edge- and graph-level self-supervised tasks, yielding a 100-million-parameter encoder fitted to 10 million unlabelled molecules drawn from ChEMBL and ZINC15. Fine-tuning the pretrained weights improved on the state of the art across eleven MoleculeNet benchmarks by more than 6% on average. Individual dimensions carry no chemical meaning and are intended as input to downstream models.
+GROVER turns a molecule into 5,000 label-free features, 4,800 read out from the graph transformer plus 200 RDKit descriptors appended at inference. Rong and colleagues at Tencent AI Lab folded message-passing networks into a Transformer trained on node-, edge- and graph-level self-supervised tasks; the GROVERlarge checkpoint served here carries 100 million parameters fitted to 10 million unlabelled ChEMBL and ZINC15 molecules. Fine-tuning these weights beat the state of the art on eleven MoleculeNet benchmarks by over 6% on average. Individual dimensions have no chemical meaning.
 
 This model was incorporated on 2021-09-22.Last packaged on 2026-08-31.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2021-09-22.Last packaged on 2026-08-31.
 ### Output
 - **Output Dimension:** `5000`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** 5000 features encoding molecular structure from a self-supervised graph transformer.
+- **Interpretation:** 5000 structural features from a self-supervised graph transformer, the last 200 being RDKit descriptors.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
