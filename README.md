@@ -2,7 +2,8 @@
 
 GROVER turns a molecule into 5,000 label-free features, 4,800 read out from the graph transformer plus 200 RDKit descriptors appended at inference. Rong and colleagues at Tencent AI Lab folded message-passing networks into a Transformer trained on node-, edge- and graph-level self-supervised tasks; the GROVERlarge checkpoint served here carries 100 million parameters fitted to 10 million unlabelled ChEMBL and ZINC15 molecules. Fine-tuning these weights beat the state of the art on eleven MoleculeNet benchmarks by over 6% on average. Individual dimensions have no chemical meaning.
 
-This model was incorporated on 2021-09-22.Last packaged on 2026-08-31.
+This model was incorporated on 2021-09-22.
+Last packaged on 2026-08-31.
 
 ## Information
 ### Identifiers
@@ -46,6 +47,7 @@ _10 of 5000 columns are shown_
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos7w6n](https://hub.docker.com/r/ersiliaos/eos7w6n)
 - **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7w6n.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos7w6n.zip)
+- **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos7w6n_v2.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos7w6n_v2.sif)
 
 ### Resource Consumption
 - **Model Size (Mb):** `428`
